@@ -253,4 +253,272 @@ export const housesData = [
       phone: "0123 456 78910",
     },
   },
+  
+  {
+    id: 7,
+    type: "Apartment",
+    name: "Apartment 1",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment1,
+    imageLg: Apartment1Lg,
+    country: "Noida",
+    address: "987 Sector 50, Noida, Uttar Pradesh 202401",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1200 sq ft",
+    year: "2024",
+    price: "21000", // Adjusted price
+    date: "10",
+    agent: {
+      image: Agent7,
+      name: "Rajesh Kumar", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 8,
+    type: "Apartment",
+    name: "Apartment 2",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment2,
+    imageLg: Apartment2Lg,
+    country: "Gurgaon",
+    address: "258 MG Road, Gurgaon, Haryana 122001",
+    bedrooms: "3",
+    bathrooms: "1",
+    surface: "1000 sq ft",
+    year: "2024",
+    price: "25000", // Adjusted price
+    date: "15",
+    agent: {
+      image: Agent8,
+      name: "Sonia Gupta", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 9,
+    type: "Apartment",
+    name: "Apartment 3",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment3,
+    imageLg: Apartment3Lg,
+    country: "Ahmedabad",
+    address: "369 Ashram Road, Ahmedabad, Gujarat 380009",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1100 sq ft",
+    year: "2024",
+    price: "24000", // Adjusted price
+    date: "5",
+    agent: {
+      image: Agent9,
+      name: "Priya Desai", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  
+  {
+    id: 7,
+    type: "Apartment",
+    name: "Apartment 1",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment1,
+    imageLg: Apartment1Lg,
+    country: "Noida",
+    address: "987 Sector 50, Noida, Uttar Pradesh 202401",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1200 sq ft",
+    year: "2024",
+    price: "21000", // Adjusted price
+    date: "10",
+    agent: {
+      image: Agent7,
+      name: "Rajesh Kumar", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 8,
+    type: "Apartment",
+    name: "Apartment 2",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment2,
+    imageLg: Apartment2Lg,
+    country: "Gurgaon",
+    address: "258 MG Road, Gurgaon, Haryana 122001",
+    bedrooms: "3",
+    bathrooms: "1",
+    surface: "1000 sq ft",
+    year: "2024",
+    price: "25000", // Adjusted price
+    date: "15",
+    agent: {
+      image: Agent8,
+      name: "Sonia Gupta", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 9,
+    type: "Apartment",
+    name: "Apartment 3",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment3,
+    imageLg: Apartment3Lg,
+    country: "Ahmedabad",
+    address: "369 Ashram Road, Ahmedabad, Gujarat 380009",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1100 sq ft",
+    year: "2024",
+    price: "24000", // Adjusted price
+    date: "5",
+    agent: {
+      image: Agent9,
+      name: "Priya Desai", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  
+  {
+    id: 7,
+    type: "Apartment",
+    name: "Apartment 1",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment1,
+    imageLg: Apartment1Lg,
+    country: "Noida",
+    address: "987 Sector 50, Noida, Uttar Pradesh 202401",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1200 sq ft",
+    year: "2024",
+    price: "21000", // Adjusted price
+    date: "10",
+    agent: {
+      image: Agent7,
+      name: "Rajesh Kumar", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 8,
+    type: "Apartment",
+    name: "Apartment 2",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment2,
+    imageLg: Apartment2Lg,
+    country: "Gurgaon",
+    address: "258 MG Road, Gurgaon, Haryana 122001",
+    bedrooms: "3",
+    bathrooms: "1",
+    surface: "1000 sq ft",
+    year: "2024",
+    price: "25000", // Adjusted price
+    date: "15",
+    agent: {
+      image: Agent8,
+      name: "Sonia Gupta", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 9,
+    type: "Apartment",
+    name: "Apartment 3",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment3,
+    imageLg: Apartment3Lg,
+    country: "Ahmedabad",
+    address: "369 Ashram Road, Ahmedabad, Gujarat 380009",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1100 sq ft",
+    year: "2024",
+    price: "24000", // Adjusted price
+    date: "5",
+    agent: {
+      image: Agent9,
+      name: "Priya Desai", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  
+  {
+    id: 7,
+    type: "Apartment",
+    name: "Apartment 1",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment1,
+    imageLg: Apartment1Lg,
+    country: "Noida",
+    address: "987 Sector 50, Noida, Uttar Pradesh 202401",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1200 sq ft",
+    year: "2024",
+    price: "21000", // Adjusted price
+    date: "10",
+    agent: {
+      image: Agent7,
+      name: "Rajesh Kumar", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 8,
+    type: "Apartment",
+    name: "Apartment 2",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment2,
+    imageLg: Apartment2Lg,
+    country: "Gurgaon",
+    address: "258 MG Road, Gurgaon, Haryana 122001",
+    bedrooms: "3",
+    bathrooms: "1",
+    surface: "1000 sq ft",
+    year: "2024",
+    price: "25000", // Adjusted price
+    date: "15",
+    agent: {
+      image: Agent8,
+      name: "Sonia Gupta", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
+  {
+    id: 9,
+    type: "Apartment",
+    name: "Apartment 3",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
+    image: Apartment3,
+    imageLg: Apartment3Lg,
+    country: "Ahmedabad",
+    address: "369 Ashram Road, Ahmedabad, Gujarat 380009",
+    bedrooms: "2",
+    bathrooms: "1",
+    surface: "1100 sq ft",
+    year: "2024",
+    price: "24000", // Adjusted price
+    date: "5",
+    agent: {
+      image: Agent9,
+      name: "Priya Desai", // Changed to an Indian name
+      phone: "0123 456 78910",
+    },
+  },
 ];
