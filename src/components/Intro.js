@@ -4,7 +4,7 @@ import bannerImage from '../assets/img/apartments/a6lg.png'; // Adjust the path 
 
 const IntroPage = () => {
     return (
-        <div className="banner-container flex flex-col items-center justify-center h-screen bg-cover bg-center"
+        <div className="banner-container mb-10 flex flex-col items-center justify-center h-screen bg-cover bg-center"
              style={{ backgroundImage: `url(${bannerImage})` }}>
              
             <div className="content relative z-10 text-center text-white p-5">
