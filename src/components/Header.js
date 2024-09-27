@@ -9,25 +9,22 @@ const Header = () => {
     };
 
     return (
-        <header className="py-4 md:py-6 mb-4 md:mb-0 bg-white shadow-md">
-            <div className="container mx-auto flex justify-between items-center font-bold text-gray-800 relative">
-                <Link to="/">
-                    <p className="text-violet-700 hover:text-violet-800 text-3xl font-bold transition">MarwadiVilla</p>
-                </Link>
-
-                {/* Hamburger icon for mobile */}
-                <div className="block md:hidden">
-                    <button onClick={toggleMenu} className="flex items-center text-violet-700 focus:outline-none">
-                        {isMenuOpen ? (
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        ) : (
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                            </svg>
-                        )}
-                    </button>
+        <header className="py-6 mb-12 border-b">
+            <div className="container mx-auto flex justify-between items-center font-bold text-gray-800" >
+                <div className="flex justify-between items-center gap-6">
+                    <Link to="/">
+                        {/* <img src={Logo} alt="logo"/> */}
+                        <p className="text-violet-700 hover:text-violet-800 text-3xl font-bold transition">MarwadiVilla</p>
+                    </Link>
+                    <Link className="px-4 py-3 bg-violet-300 text-white rounded-lg" to="/">Home</Link>
+                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" to="/compare">Compare</Link>
+                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"  to="">List</Link>
+                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"  to="">Appointment</Link>
+                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"  to="">Resources</Link>
+                </div>
+                <div className="flex items-center gap-6 ">
+                    <Link className="border-2 text-violet-800  px-4 py-3 rounded-lg hover:bg-violet-300 hover:text-white transition" to="">Log in</Link>
+                    <Link className="bg-violet-700 hover:bg-violet-800 text-white px-4 py-3 rounded-lg transition " to="">Sign up</Link>
                 </div>
 
                 {/* Navigation Links */}
