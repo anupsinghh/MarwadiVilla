@@ -13,8 +13,8 @@ const Header = () => {
                         {/* <img src={Logo} alt="logo"/> */}
                         <p className="text-violet-700 hover:text-violet-800 text-3xl font-bold transition">MarwadiVilla</p>
                     </Link>
-                    <Link className="px-4 py-3 bg-violet-300 text-white rounded-lg" to="">Home</Link>
-                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" to="">Compare</Link>
+                    <Link className="px-4 py-3 bg-violet-300 text-white rounded-lg" to="/">Home</Link>
+                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" to="/compare">Compare</Link>
                     <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"  to="">List</Link>
                     <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"  to="">Appointment</Link>
                     <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"  to="">Resources</Link>
