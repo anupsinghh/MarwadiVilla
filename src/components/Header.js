@@ -69,6 +69,12 @@ const Header = () => {
             {/* Mobile Navigation Menu */}
             <nav ref={menuRef} className={`md:hidden fixed top-0 right-0 w-full max-w-xs h-auto bg-white shadow-md transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
                 <div className="flex flex-col items-start p-2">
+                    {/* Close Button */}
+                    <button onClick={closeMenu} className="self-end text-gray-800 p-2">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                     <Link onClick={closeMenu} className="border-2 text-violet-800 w-full text-left px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition" to="">Log in</Link>
                     <Link onClick={closeMenu} className="bg-violet-700 w-full text-left hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition" to="">Sign up</Link>
                     <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="/">Home</Link>

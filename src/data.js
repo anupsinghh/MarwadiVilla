@@ -69,11 +69,11 @@ export const housesData = [
     bathrooms: "3",
     surface: "4200 sq ft",
     year: "2024",
-    price: "1700",
+    price: "35000", // Adjusted price
     date: "5",
     agent: {
       image: Agent1,
-      name: "Patricia Tullert",
+      name: "Rohan Mehta", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -91,11 +91,11 @@ export const housesData = [
     bathrooms: "3",
     surface: "4200 sq ft",
     year: "2024",
-    price: "2500",
+    price: "28000", // Adjusted price
     date: "10",
     agent: {
       image: Agent2,
-      name: "Daryl Hawker",
+      name: "Aditi Sharma", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -113,11 +113,11 @@ export const housesData = [
     bathrooms: "3",
     surface: "4200 sq ft",
     year: "2024",
-    price: "1000",
+    price: "32000", // Adjusted price
     date: "5",
     agent: {
       image: Agent3,
-      name: "Amado Smith",
+      name: "Suresh Nair", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -135,11 +135,11 @@ export const housesData = [
     bathrooms: "3",
     surface: "4200 sq ft",
     year: "2024",
-    price: "3700",
+    price: "38000", // Adjusted price
     date: "15",
     agent: {
       image: Agent4,
-      name: "Kaitlyn Gonzalez",
+      name: "Deepa Reddy", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -157,11 +157,11 @@ export const housesData = [
     bathrooms: "3",
     surface: "4200 sq ft",
     year: "2024",
-    price: "2300",
+    price: "25000", // Adjusted price
     date: "20",
     agent: {
       image: Agent5,
-      name: "Grover Robinson",
+      name: "Vikram Joshi", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -179,11 +179,11 @@ export const housesData = [
     bathrooms: "3",
     surface: "6200 sq ft",
     year: "2024",
-    price: "1300",
+    price: "22000", // Adjusted price
     date: "5",
     agent: {
       image: Agent6,
-      name: "Karen Sorensen",
+      name: "Nisha Pillai", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -201,11 +201,11 @@ export const housesData = [
     bathrooms: "1",
     surface: "1200 sq ft",
     year: "2024",
-    price: "2000",
+    price: "21000", // Adjusted price
     date: "10",
     agent: {
       image: Agent7,
-      name: "Jawhar Shamil Naser",
+      name: "Rajesh Kumar", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -223,11 +223,11 @@ export const housesData = [
     bathrooms: "1",
     surface: "1000 sq ft",
     year: "2024",
-    price: "3000",
+    price: "25000", // Adjusted price
     date: "15",
     agent: {
       image: Agent8,
-      name: "Juana Douglass",
+      name: "Sonia Gupta", // Changed to an Indian name
       phone: "0123 456 78910",
     },
   },
@@ -245,15 +245,12 @@ export const housesData = [
     bathrooms: "1",
     surface: "1100 sq ft",
     year: "2024",
-    price: "2700",
+    price: "24000", // Adjusted price
     date: "5",
     agent: {
       image: Agent9,
-      name: "Jerry Schenck",
+      name: "Priya Desai", // Changed to an Indian name
       phone: "0123 456 78910",
     },
-  
-  
   },
 ];
-
