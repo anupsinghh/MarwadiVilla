@@ -11,7 +11,7 @@ const House = ({house}) => {
             <img className='w-full h-[150px] rounded-t-lg ' src={image} alt="house img"/>
             <div className='p-3'>
                 <div className='flex justify-between items-center px-3'>
-                    <div className='text-lg  text-violet-600 mb-4 font-bold pl-2' >${price} <span className='text-gray-500 font-light text-sm'>/month</span> </div>
+                    <div className='text-lg  text-violet-600 mb-4 font-bold pl-2' >₹{price} <span className='text-gray-500 font-light text-sm'>/month</span> </div>
                     <RiHeart3Line className='text-3xl hover:text-red-500'/>
                     
                 </div>
