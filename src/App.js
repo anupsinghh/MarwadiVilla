@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Compare from "./pages/Compare";
+import PropertyPage from "./pages/PropertyPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/compare" element={<Compare />} />
+        <Route path="/property/:id" element={<PropertyPage/>}/>
         
       </Routes>
       <Footer />
