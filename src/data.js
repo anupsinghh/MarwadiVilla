@@ -68,7 +68,7 @@ export const housesData = [
     bedrooms: "6",
     bathrooms: "3",
     surface: "4200 sq ft",
-    year: "2016",
+    year: "2024",
     price: "1700",
     date: "5",
     agent: {
@@ -90,7 +90,7 @@ export const housesData = [
     bedrooms: "6",
     bathrooms: "3",
     surface: "4200 sq ft",
-    year: "2016",
+    year: "2024",
     price: "2500",
     date: "10",
     agent: {
@@ -112,7 +112,7 @@ export const housesData = [
     bedrooms: "6",
     bathrooms: "3",
     surface: "4200 sq ft",
-    year: "2016",
+    year: "2024",
     price: "1000",
     date: "5",
     agent: {
@@ -134,7 +134,7 @@ export const housesData = [
     bedrooms: "6",
     bathrooms: "3",
     surface: "4200 sq ft",
-    year: "2016",
+    year: "2024",
     price: "3700",
     date: "15",
     agent: {
@@ -156,7 +156,7 @@ export const housesData = [
     bedrooms: "5",
     bathrooms: "3",
     surface: "4200 sq ft",
-    year: "2015",
+    year: "2024",
     price: "2300",
     date: "20",
     agent: {
@@ -178,7 +178,7 @@ export const housesData = [
     bedrooms: "6",
     bathrooms: "3",
     surface: "6200 sq ft",
-    year: "2014",
+    year: "2024",
     price: "1300",
     date: "5",
     agent: {
@@ -196,11 +196,11 @@ export const housesData = [
     image: Apartment1,
     imageLg: Apartment1Lg,
     country: "Noida",
-    address: "987 Sector 50, Noida, Uttar Pradesh 201301",
+    address: "987 Sector 50, Noida, Uttar Pradesh 202401",
     bedrooms: "2",
     bathrooms: "1",
     surface: "1200 sq ft",
-    year: "2012",
+    year: "2024",
     price: "2000",
     date: "10",
     agent: {
@@ -222,7 +222,7 @@ export const housesData = [
     bedrooms: "3",
     bathrooms: "1",
     surface: "1000 sq ft",
-    year: "2011",
+    year: "2024",
     price: "3000",
     date: "15",
     agent: {
@@ -244,7 +244,7 @@ export const housesData = [
     bedrooms: "2",
     bathrooms: "1",
     surface: "1100 sq ft",
-    year: "2011",
+    year: "2024",
     price: "2700",
     date: "5",
     agent: {
@@ -252,28 +252,8 @@ export const housesData = [
       name: "Jerry Schenck",
       phone: "0123 456 78910",
     },
-  },
-  {
-    id: 10,
-    type: "House",
-    name: "House 7",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.",
-    image: House7,
-    imageLg: House7Lg,
-    country: "Kolkata",
-    address: "123 Park Street, Kolkata, West Bengal 700016",
-    bedrooms: "5",
-    bathrooms: "3",
-    surface: "3200 sq ft",
-    year: "2017",
-    price: "3400",
-    date: "2",
-    agent: {
-      image: Agent10,
-      name: "Wayne Watson",
-      phone: "0123 456 78910",
-    },
+  
+  
   },
 ];
 
