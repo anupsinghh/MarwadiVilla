@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Import motion for animations
-import bannerImage from '../assets/img/apartments/a6lg.png'; // Adjust the path to your asset image
+import bannerImage from '../assets/img/apartments/ph.webp'; // Your WebP image
 
 const IntroPage = () => {
     // Animation variants for different elements
@@ -27,6 +27,12 @@ const IntroPage = () => {
             },
         },
     };
+
+    // Preload the image for better performance
+    useEffect(() => {
+        const img = new Image();
+        img.src = bannerImage; // Preload the image
+    }, []);
 
     return (
         <motion.div
