@@ -3,6 +3,7 @@ import { HouseContext } from "./HouseContext";
 import House from "./House";
 import { ImSpinner2 } from "react-icons/im";
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const HouseList = () => {
     const { houses, loading } = useContext(HouseContext);
