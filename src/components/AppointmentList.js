@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AppointmentList = ({ appointments }) => {
+const AppointmentList = ({ appointments, onCancel }) => {
   return (
     <div className='bg-white shadow-lg rounded-lg p-6'>
       {appointments.length > 0 ? (
@@ -16,6 +16,12 @@ const AppointmentList = ({ appointments }) => {
               <p><strong>Date:</strong> {appointment.date}</p>
               <p><strong>Time:</strong> {appointment.time}</p>
             </div>
+            <button
+              className='bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 ml-4'
+              onClick={() => onCancel(appointment.id)} // Call onCancel function with the appointment ID
+            >
+              Cancel
+            </button>
           </div>
         ))
       ) : (
@@ -26,4 +32,3 @@ const AppointmentList = ({ appointments }) => {
 };
 
 export default AppointmentList;
-    
