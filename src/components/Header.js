@@ -65,7 +65,7 @@ const Header = ({ user, onLogout }) => {
                 <nav className="hidden md:flex md:items-center md:gap-6">
                     <Link className="px-4 py-3 bg-violet-300 text-white rounded-lg" to="/">Home</Link>
                     <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/compare")}>Compare</button>
-                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/listings")}>Listings</button>
+                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/listing")}>Listings</button>
                     <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/wishlist")}>Wishlist</button>
                     <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/appointments")}>Appointments</button>
                 </nav>
@@ -117,12 +117,12 @@ const Header = ({ user, onLogout }) => {
                             )}
                             <span className="border-2 text-violet-800 w-full text-left px-4 py-2 rounded-lg">Hello, {user.name}</span>
                             <button 
-                                className="w-full text-left hover:bg-violet-300 hover:text-white rounded-lg px-4 py-2" 
-                                onClick={onLogout}
-                                style={{ color: 'red' }} // Set logout button to red
-                            >
-                                Log Out
-                            </button>
+    className="w-full text-left bg-red-600 text-white rounded-lg px-4 py-2 hover:bg-red-700" 
+    onClick={onLogout}
+>
+    Log Out
+</button>
+
                         </div>
                     ) : (
                         <>
@@ -132,7 +132,7 @@ const Header = ({ user, onLogout }) => {
                     )}
                     <button onClick={() => { closeMenu(); handleLinkClick("/"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Home</button>
                     <button onClick={() => { closeMenu(); handleLinkClick("/compare"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Compare</button>
-                    <button onClick={() => { closeMenu(); handleLinkClick("/listings"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">List</button>
+                    <button onClick={() => { closeMenu(); handleLinkClick("/listing"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">List</button>
                     <button onClick={() => { closeMenu(); handleLinkClick("/wishlist"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Wishlist</button>
                     <button onClick={() => { closeMenu(); handleLinkClick("/appointments"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Appointments</button>
                     <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="">Resources</Link>
