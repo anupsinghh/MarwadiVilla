@@ -1,6 +1,5 @@
-// src/components/Listing.js
 import React, { useState, useEffect } from 'react';
-import { addHouseToLocalStorage } from '../data'; // Import the function to add a house
+import { addHouseToLocalStorage } from '../data'; // Ensure this function correctly manages local storage
 
 const Listing = () => {
   const [formData, setFormData] = useState({
@@ -57,17 +56,18 @@ const Listing = () => {
       price: formData.price,
       date: new Date().toLocaleDateString(),
       agent: {
-        image: '',
+        image: '', // You might want to include an agent image if available
         name: formData.agentName,
         phone: formData.agentPhone,
       },
     };
 
     // Add the new house to local storage
-    addHouseToLocalStorage(newHouse);
+    const updatedHouses = [...allHouses, newHouse];
+    localStorage.setItem('houses', JSON.stringify(updatedHouses)); // Update local storage directly
+    setAllHouses(updatedHouses); // Update the state with the new house
 
-    // Update state and reset the form
-    setAllHouses(prevHouses => [...prevHouses, newHouse]);
+    // Reset the form
     setFormData({
       type: '',
       name: '',
@@ -88,10 +88,18 @@ const Listing = () => {
     alert('Property added successfully!');
   };
 
+  const handleDelete = (id) => {
+    const updatedHouses = allHouses.filter(house => house.id !== id); // Remove the house with the specified id
+    localStorage.setItem('houses', JSON.stringify(updatedHouses)); // Update local storage
+    setAllHouses(updatedHouses); // Update the state to reflect the deletion
+    alert('Property deleted successfully!'); // Optional alert
+  };
+
   return (
     <div className="max-w-lg mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Add a Property</h1>
       <form onSubmit={handleSubmit} className="space-y-4 mb-16">
+        {/* Form fields for property input */}
         <div>
           <label htmlFor="type" className="block">Type:</label>
           <input type="text" name="type" id="type" value={formData.type} onChange={handleChange} className="w-full p-2 border rounded" />
@@ -169,6 +177,12 @@ const Listing = () => {
               <p>{house.description}</p>
               <p className="text-gray-600">Location: {house.city}, {house.country}</p>
               <p className="text-gray-600">Price: ${house.price}</p>
+              <button
+                onClick={() => handleDelete(house.id)}
+                className="mt-2 bg-red-500 text-white p-1 rounded hover:bg-red-600 transition duration-200"
+              >
+                Delete
+              </button>
             </div>
           ))
         )}

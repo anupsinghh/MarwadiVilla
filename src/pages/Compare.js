@@ -195,11 +195,11 @@ const Compare = () => {
         />
       </div>
 
-      <div className="flex overflow-x-auto space-x-5 mb-4">
+      <div className="flex flex-wrap justify-between mb-4">
         {selectedHouses.map((selectedHouse, index) => (
-          <div key={index} className="flex flex-col w-1/3 p-4" style={{ minHeight: '370px' }}>
+          <div key={index} className="flex flex-col w-full md:w-1/3 p-2" style={{ minHeight: '370px' }}>
             <div className="flex items-center justify-between mb-2">
-              <div className="w-64"> {/* Fixed width for the select container */}
+              <div className="w-full"> {/* Responsive select container */}
                 <Select
                   options={houseOptions}
                   onChange={(option) => handleSelectHouse(option, index)}
@@ -221,7 +221,7 @@ const Compare = () => {
         ))}
         <button 
           onClick={addHouseSelect}
-          className="flex items-center justify-center w-32 p-4 bg-blue-500 text-white rounded"
+          className="flex items-center justify-center w-full md:w-32 p-4 bg-blue-500 text-white rounded mt-2"
         >
           <FaPlus /> Add House
         </button>
