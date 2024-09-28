@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { addHouse } from '../data'; // Adjust the path as necessary
+// src/components/Listing.js
+import React, { useState, useEffect } from 'react';
+import { addHouseToLocalStorage } from '../data'; // Import the function to add a house
 
 const Listing = () => {
   const [formData, setFormData] = useState({
@@ -7,7 +8,7 @@ const Listing = () => {
     name: '',
     description: '',
     image: '',
-    imageLg: '', // Add large image field
+    imageLg: '',
     country: '',
     city: '',
     address: '',
@@ -19,6 +20,14 @@ const Listing = () => {
     agentName: '',
     agentPhone: '',
   });
+
+  const [allHouses, setAllHouses] = useState([]);
+
+  useEffect(() => {
+    // Fetch initial data from local storage
+    const storedHouses = JSON.parse(localStorage.getItem('houses')) || [];
+    setAllHouses(storedHouses); // Only use data from local storage
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +46,7 @@ const Listing = () => {
       name: formData.name,
       description: formData.description,
       image: formData.image,
-      imageLg: formData.imageLg, // Include large image
+      imageLg: formData.imageLg,
       country: formData.country,
       city: formData.city,
       address: formData.address,
@@ -54,13 +63,17 @@ const Listing = () => {
       },
     };
 
-    addHouse(newHouse);
+    // Add the new house to local storage
+    addHouseToLocalStorage(newHouse);
+
+    // Update state and reset the form
+    setAllHouses(prevHouses => [...prevHouses, newHouse]);
     setFormData({
       type: '',
       name: '',
       description: '',
       image: '',
-      imageLg: '', // Reset large image field
+      imageLg: '',
       country: '',
       city: '',
       address: '',
@@ -79,157 +92,87 @@ const Listing = () => {
     <div className="max-w-lg mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Add a Property</h1>
       <form onSubmit={handleSubmit} className="space-y-4 mb-16">
-        <input
-          type="text"
-          name="type"
-          placeholder="Type"
-          value={formData.type}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <textarea
-          name="description"
-          placeholder="Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={formData.image}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        {formData.image && (
-          <img
-            src={formData.image}
-            alt="Preview"
-            className="w-full h-auto mb-4 rounded"
-          />
-        )}
-        <input
-          type="text"
-          name="imageLg"
-          placeholder="Large Image URL" // Add large image URL field
-          value={formData.imageLg}
-          onChange={handleChange}
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        {formData.imageLg && (
-          <img
-            src={formData.imageLg}
-            alt="Large Preview"
-            className="w-full h-auto mb-4 rounded"
-          />
-        )}
-        {/* Other fields remain unchanged */}
-        <input
-          type="text"
-          name="country"
-          placeholder="Country"
-          value={formData.country}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="city"
-          placeholder="City"
-          value={formData.city}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          value={formData.address}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="number"
-          name="bedrooms"
-          placeholder="Bedrooms"
-          value={formData.bedrooms}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="number"
-          name="bathrooms"
-          placeholder="Bathrooms"
-          value={formData.bathrooms}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="surface"
-          placeholder="Surface Area"
-          value={formData.surface}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="year"
-          placeholder="Year Built"
-          value={formData.year}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="price"
-          placeholder="Price"
-          value={formData.price}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="agentName"
-          placeholder="Agent Name"
-          value={formData.agentName}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
-        <input
-          type="text"
-          name="agentPhone"
-          placeholder="Agent Phone"
-          value={formData.agentPhone}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-        />
+        <div>
+          <label htmlFor="type" className="block">Type:</label>
+          <input type="text" name="type" id="type" value={formData.type} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="name" className="block">Name:</label>
+          <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="description" className="block">Description:</label>
+          <textarea name="description" id="description" value={formData.description} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="image" className="block">Image URL:</label>
+          <input type="text" name="image" id="image" value={formData.image} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="imageLg" className="block">Large Image URL:</label>
+          <input type="text" name="imageLg" id="imageLg" value={formData.imageLg} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="country" className="block">Country:</label>
+          <input type="text" name="country" id="country" value={formData.country} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="city" className="block">City:</label>
+          <input type="text" name="city" id="city" value={formData.city} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="address" className="block">Address:</label>
+          <input type="text" name="address" id="address" value={formData.address} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="bedrooms" className="block">Bedrooms:</label>
+          <input type="number" name="bedrooms" id="bedrooms" value={formData.bedrooms} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="bathrooms" className="block">Bathrooms:</label>
+          <input type="number" name="bathrooms" id="bathrooms" value={formData.bathrooms} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="surface" className="block">Surface Area:</label>
+          <input type="text" name="surface" id="surface" value={formData.surface} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="year" className="block">Year:</label>
+          <input type="text" name="year" id="year" value={formData.year} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="price" className="block">Price:</label>
+          <input type="number" name="price" id="price" value={formData.price} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="agentName" className="block">Agent Name:</label>
+          <input type="text" name="agentName" id="agentName" value={formData.agentName} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label htmlFor="agentPhone" className="block">Agent Phone:</label>
+          <input type="text" name="agentPhone" id="agentPhone" value={formData.agentPhone} onChange={handleChange} className="w-full p-2 border rounded" />
+        </div>
         <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200">
           Add Property
         </button>
       </form>
+
+      <h2 className="text-xl font-bold mb-4">Existing Properties</h2>
+      <div className="space-y-4">
+        {allHouses.length === 0 ? (
+          <p>No properties added yet.</p>
+        ) : (
+          allHouses.map((house) => (
+            <div key={house.id} className="border p-4 rounded shadow">
+              <img src={house.image} alt={house.name} className="w-full h-48 object-cover mb-2 rounded" />
+              <h3 className="font-bold text-lg">{house.name}</h3>
+              <p>{house.description}</p>
+              <p className="text-gray-600">Location: {house.city}, {house.country}</p>
+              <p className="text-gray-600">Price: ${house.price}</p>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };

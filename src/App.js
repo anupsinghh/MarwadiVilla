@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MapSearch from "./components/MapSearch";
 import AppointmentBooking from './components/AppointmentBooking';
-
+import AppointmentsPage from './components/AppointmentsPage';
 import Home from "./pages/Home";
 import Compare from "./pages/Compare";
 import PropertyPage from "./pages/PropertyPage";
@@ -73,8 +73,8 @@ function App() {
         <Route path="/map-search" element={<MapSearch />} />
         <Route path="/property/:id/book-appointment" element={<AppointmentBooking />} />
         <Route path="/listing" element={<Listing />} />
+        <Route path="/appointments" element={<AppointmentsPage />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

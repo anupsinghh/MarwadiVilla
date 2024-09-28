@@ -1,11 +1,12 @@
+// src/components/AppointmentBooking.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { housesData } from '../data'; // Adjust the path as needed
+import AppointmentList from './AppointmentList'; // Import the new component
 
 const AppointmentBooking = () => {
   const { id } = useParams();
   const numericId = parseInt(id, 10);
-
   const house = housesData.find((house) => house.id === numericId);
   const [appointments, setAppointments] = useState([]);
   const [name, setName] = useState('');
@@ -27,7 +28,12 @@ const AppointmentBooking = () => {
       email,
       phone,
       date,
-      time
+      time,
+      propertyImage: house.imageLg, // Add property image
+      propertyName: house.address, // Add property name
+      propertyLocation: house.country, // Add property location
+      agentName: house.agent.name, // Add agent name
+      agentPhone: house.agent.phone // Add agent phone
     };
 
     // Save to localStorage
@@ -129,21 +135,7 @@ const AppointmentBooking = () => {
         </form>
       </div>
       <h2 className='text-2xl font-semibold mb-4'>Previously Booked Appointments</h2>
-      <div className='bg-white shadow-lg rounded-lg p-6'>
-        {appointments.length > 0 ? (
-          appointments.map((appointment, index) => (
-            <div key={index} className='mb-4 p-4 border rounded'>
-              <p><strong>Name:</strong> {appointment.name}</p>
-              <p><strong>Email:</strong> {appointment.email}</p>
-              <p><strong>Phone:</strong> {appointment.phone}</p>
-              <p><strong>Date:</strong> {appointment.date}</p>
-              <p><strong>Time:</strong> {appointment.time}</p>
-            </div>
-          ))
-        ) : (
-          <p>No appointments booked yet.</p>
-        )}
-      </div>
+      <AppointmentList appointments={appointments} /> {/* Use the new component here */}
     </div>
   );
 };
