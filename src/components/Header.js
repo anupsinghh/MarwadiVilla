@@ -48,7 +48,7 @@ const Header = ({ user, onLogout }) => {
 
                 {/* Hamburger Icon for Mobile */}
                 <div className="md:hidden">
-                    <button onClick={toggleMenu} className="focus:outline-none">
+                    <button onClick={toggleMenu} className="focus:outline-none" aria-label="Toggle navigation menu">
                         <svg
                             className="w-8 h-8"
                             fill="none"
@@ -64,10 +64,34 @@ const Header = ({ user, onLogout }) => {
                 {/* Desktop Navigation Links */}
                 <nav className="hidden md:flex md:items-center md:gap-6">
                     <Link className="px-4 py-3 bg-violet-300 text-white rounded-lg" to="/">Home</Link>
-                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/compare")}>Compare</button>
-                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/listing")}>Listings</button>
-                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/wishlist")}>Wishlist</button>
-                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/appointments")}>Appointments</button>
+                    <button
+                        className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"
+                        onClick={() => handleLinkClick("/compare")}
+                        aria-label="Compare properties"
+                    >
+                        Compare
+                    </button>
+                    <button
+                        className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"
+                        onClick={() => handleLinkClick("/listing")}
+                        aria-label="View property listings"
+                    >
+                        Listings
+                    </button>
+                    <button
+                        className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"
+                        onClick={() => handleLinkClick("/wishlist")}
+                        aria-label="View wishlisted properties"
+                    >
+                        Wishlist
+                    </button>
+                    <button
+                        className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg"
+                        onClick={() => handleLinkClick("/appointments")}
+                        aria-label="View appointments"
+                    >
+                        Appointments
+                    </button>
                 </nav>
 
                 <div className="hidden md:flex items-center gap-6">
@@ -84,6 +108,7 @@ const Header = ({ user, onLogout }) => {
                             <button 
                                 className="border-2 text-violet-800 px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition"
                                 onClick={onLogout}
+                                aria-label="Log out"
                                 style={{ color: 'red' }} // Set logout button to red
                             >
                                 Log Out
@@ -91,17 +116,33 @@ const Header = ({ user, onLogout }) => {
                         </div>
                     ) : (
                         <>
-                            <button className="border-2 text-violet-800 px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition" onClick={() => navigate("/login")}>Log in</button>
-                            <Link className="bg-violet-700 hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition" to="">Sign up</Link>
+                            <button 
+                                className="border-2 text-violet-800 px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition"
+                                onClick={() => navigate("/login")}
+                                aria-label="Log in"
+                            >
+                                Log in
+                            </button>
+                            <Link 
+                                className="bg-violet-700 hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition" 
+                                to=""
+                                aria-label="Sign up"
+                            >
+                                Sign up
+                            </Link>
                         </>
                     )}
                 </div>
             </div>
 
             {/* Mobile Navigation Menu */}
-            <nav ref={menuRef} className={`md:hidden fixed top-0 right-0 w-full max-w-xs h-auto bg-white shadow-md transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+            <nav 
+                ref={menuRef} 
+                className={`md:hidden fixed top-0 right-0 w-full max-w-xs h-auto bg-white shadow-md transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}
+                aria-label="Mobile navigation menu"
+            >
                 <div className="flex flex-col items-start p-2">
-                    <button onClick={closeMenu} className="self-end text-gray-800 p-2">
+                    <button onClick={closeMenu} className="self-end text-gray-800 p-2" aria-label="Close navigation menu">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -117,25 +158,67 @@ const Header = ({ user, onLogout }) => {
                             )}
                             <span className="border-2 text-violet-800 w-full text-left px-4 py-2 rounded-lg">Hello, {user.name}</span>
                             <button 
-    className="w-full text-left bg-red-600 text-white rounded-lg px-4 py-2 hover:bg-red-700" 
-    onClick={onLogout}
->
-    Log Out
-</button>
-
+                                className="w-full text-left bg-red-600 text-white rounded-lg px-4 py-2 hover:bg-red-700" 
+                                onClick={onLogout}
+                                aria-label="Log out"
+                            >
+                                Log Out
+                            </button>
                         </div>
                     ) : (
                         <>
-                            <button onClick={() => { closeMenu(); navigate("/login"); }} className="border-2 text-violet-800 w-full text-left px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition">Log in</button>
-                            <Link onClick={closeMenu} className="bg-violet-700 w-full text-left hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition" to="">Sign up</Link>
+                            <button 
+                                onClick={() => { closeMenu(); navigate("/login"); }} 
+                                className="border-2 text-violet-800 w-full text-left px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition"
+                                aria-label="Log in"
+                            >
+                                Log in
+                            </button>
+                            <Link 
+                                onClick={closeMenu} 
+                                className="bg-violet-700 w-full text-left hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition" 
+                                to=""
+                                aria-label="Sign up"
+                            >
+                                Sign up
+                            </Link>
                         </>
                     )}
-                    <button onClick={() => { closeMenu(); handleLinkClick("/"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Home</button>
-                    <button onClick={() => { closeMenu(); handleLinkClick("/compare"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Compare</button>
-                    <button onClick={() => { closeMenu(); handleLinkClick("/listing"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">List</button>
-                    <button onClick={() => { closeMenu(); handleLinkClick("/wishlist"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Wishlist</button>
-                    <button onClick={() => { closeMenu(); handleLinkClick("/appointments"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Appointments</button>
-                    <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="">Resources</Link>
+                    <button 
+                        onClick={() => { closeMenu(); handleLinkClick("/"); }} 
+                        className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg"
+                        aria-label="Go to home"
+                    >
+                        Home
+                    </button>
+                    <button 
+                        onClick={() => { closeMenu(); handleLinkClick("/compare"); }} 
+                        className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg"
+                        aria-label="Go to compare properties"
+                    >
+                        Compare
+                    </button>
+                    <button 
+                        onClick={() => { closeMenu(); handleLinkClick("/listing"); }} 
+                        className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg"
+                        aria-label="Go to listings"
+                    >
+                        List
+                    </button>
+                    <button 
+                        onClick={() => { closeMenu(); handleLinkClick("/wishlist"); }} 
+                        className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg"
+                        aria-label="Go to wishlist"
+                    >
+                        Wishlist
+                    </button>
+                    <button 
+                        onClick={() => { closeMenu(); handleLinkClick("/appointments"); }} 
+                        className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg"
+                        aria-label="Go to appointments"
+                    >
+                        Appointments
+                    </button>
                 </div>
             </nav>
         </header>
