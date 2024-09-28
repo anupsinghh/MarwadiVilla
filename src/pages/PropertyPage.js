@@ -5,6 +5,13 @@ import { BiBed, BiBath, BiArea } from 'react-icons/bi';
 import { RiHeart3Line } from 'react-icons/ri';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
+// Function to get wishlist from local storage
+const getWishlistFromLocalStorage = () => {
+  const wishlist = localStorage.getItem('wishlist');
+  return wishlist ? JSON.parse(wishlist) : [];
+};
 
 const PropertyPage = () => {
   const { id } = useParams();
@@ -13,22 +20,39 @@ const PropertyPage = () => {
   const [displayPrice, setDisplayPrice] = useState(null);
   const [priceType, setPriceType] = useState('rent');
 
+  // State for wishlist management
+  const [wishlist, setWishlist] = useState(getWishlistFromLocalStorage());
+  const navigate = useNavigate(); // Use useNavigate for navigation
+
   useEffect(() => {
     if (house) {
       setDisplayPrice(house.price);
     }
   }, [house]);
 
+  // Toggle wishlist
+  const toggleWishlist = () => {
+    const updatedWishlist = wishlist.includes(house.id)
+      ? wishlist.filter(item => item !== house.id) // Remove from wishlist
+      : [...wishlist, house.id]; // Add to wishlist
+
+    setWishlist(updatedWishlist);
+    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist)); // Update local storage
+
+    // Redirect to Wishlist Page if added to wishlist
+    if (!wishlist.includes(house.id)) {
+      navigate('/wishlist'); // Use navigate instead of history.push
+    }
+  };
+
+  // Initialize the map with the property location
   useEffect(() => {
     if (house) {
-      // Initialize the map
       const map = L.map('map').setView([0, 0], 13);
-
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      // Custom icon using SVG
       const customIcon = L.divIcon({
         html: `
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
@@ -41,7 +65,6 @@ const PropertyPage = () => {
         popupAnchor: [0, -36],
       });
 
-      // Use a geocoding service to get coordinates from the address
       fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(house.address)}`)
         .then(response => response.json())
         .then(data => {
@@ -106,17 +129,20 @@ const PropertyPage = () => {
                     {priceType === 'rent' ? '/month' : ' (total)'}
                   </span>
                 </div>
-                <RiHeart3Line className='text-3xl hover:text-red-500 cursor-pointer' />
+                <RiHeart3Line 
+                  className={`text-3xl cursor-pointer ${wishlist.includes(house.id) ? 'text-red-500' : 'hover:text-red-500'}`} 
+                  onClick={toggleWishlist}
+                />
               </div>
               <div className='flex gap-4 mb-4'>
                 <button 
-                  onClick={handleRent}
+                  onClick={() => setPriceType('rent')}
                   className={`px-4 py-2 rounded-full ${priceType === 'rent' ? 'bg-violet-600 text-white' : 'bg-gray-200 text-gray-700'}`}
                 >
                   Rent
                 </button>
                 <button 
-                  onClick={handleBuy}
+                  onClick={() => setPriceType('buy')}
                   className={`px-4 py-2 rounded-full ${priceType === 'buy' ? 'bg-violet-600 text-white' : 'bg-gray-200 text-gray-700'}`}
                 >
                   Buy
@@ -165,7 +191,6 @@ const PropertyPage = () => {
         </div>
         <div className='md:w-1/3'>
           <div className='bg-white shadow-lg rounded-lg overflow-hidden sticky top-4'>
-            <h3 className='text-lg font-semibold p-4 bg-violet-100 text-violet-700'>Property Location</h3>
             <div id="map" style={{ height: '300px' }}></div>
           </div>
         </div>
