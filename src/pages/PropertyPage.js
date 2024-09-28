@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { housesData } from '../data'; // Adjust the path as needed
 import { BiBed, BiBath, BiArea } from 'react-icons/bi';
 import { RiHeart3Line } from 'react-icons/ri';
@@ -9,7 +9,6 @@ import 'leaflet/dist/leaflet.css';
 const PropertyPage = () => {
   const { id } = useParams();
   const numericId = parseInt(id, 10);
-
   const house = housesData.find((house) => house.id === numericId);
   const [displayPrice, setDisplayPrice] = useState(null);
   const [priceType, setPriceType] = useState('rent');
@@ -76,9 +75,13 @@ const PropertyPage = () => {
   const { imageLg, type, country, address, bedrooms, bathrooms, surface, description, amenities, agent } = house;
 
   const handleRent = () => {
+    setDisplayPrice(house.price);
+    setPriceType('rent');
   };
 
   const handleBuy = () => {
+    setDisplayPrice(house.price * 12); // Example calculation, adjust as necessary
+    setPriceType('buy');
   };
 
   return (
@@ -86,6 +89,11 @@ const PropertyPage = () => {
       <Link to="/" className='text-violet-600 hover:underline mb-4 inline-block'>
         &larr; Back to Listings
       </Link>
+      <div className='flex justify-end mb-4'>
+        <Link to={`/property/${id}/book-appointment`} className='px-4 py-2 bg-violet-600 text-white rounded'>
+          Book Appointment
+        </Link>
+      </div>
       <div className='flex flex-col md:flex-row gap-8'>
         <div className='md:w-2/3'>
           <div className='bg-white shadow-lg rounded-lg overflow-hidden'>
