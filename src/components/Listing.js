@@ -1,4 +1,3 @@
-// Listing.js
 import React, { useState } from 'react';
 import { addHouse } from '../data'; // Adjust the path as necessary
 

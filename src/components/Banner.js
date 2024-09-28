@@ -23,6 +23,6 @@ const Banner = () => {
             <Search />
         </section>
     );
-}
+};
 
 export default Banner;

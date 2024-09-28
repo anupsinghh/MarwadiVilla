@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Select from 'react-select';
 import { housesData } from "../data"; // Adjust the import path as necessary
 import { FaPlus, FaTrash } from 'react-icons/fa'; // Import trash icon for deletion
@@ -8,6 +8,7 @@ const Compare = () => {
   const [compare, setCompare] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [bestDeal, setBestDeal] = useState(null); // State to store the best deal
+  const comparisonTableRef = useRef(null); // Reference to the comparison table
 
   const handleSelectHouse = (selectedOption, index) => {
     const newHouses = [...selectedHouses];
@@ -86,9 +87,6 @@ const Compare = () => {
       setBestDeal(scores[0]);
     }
   }, [selectedHouses]);
-  
-  
-  
 
   const renderComparisonTable = () => {
     if (!compare || selectedHouses.some(house => !house)) return null;
@@ -103,7 +101,7 @@ const Compare = () => {
     const maxSurface = Math.max(...selectedHouses.map(house => house.surface));
 
     return (
-      <div className="overflow-x-auto mt-8">
+      <div className="overflow-x-auto mt-8" ref={comparisonTableRef}>
         <table className="min-w-full bg-white">
           <thead>
             <tr>
@@ -151,7 +149,7 @@ const Compare = () => {
       </div>
     );
   };
-  
+
   // Create options for React Select with filtering based on the search term
   const filteredHouses = housesData.filter(house => {
     const searchLower = searchTerm.toLowerCase();
@@ -172,6 +170,15 @@ const Compare = () => {
       setSelectedHouses([null, null]); // Keep two selections when search term is cleared
     }
   }, [searchTerm]);
+
+  const handleCompareClick = () => {
+    setCompare(!compare);
+    setTimeout(() => {
+      if (comparisonTableRef.current) {
+        comparisonTableRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); // Give it a slight delay to allow rendering
+  };
 
   return (
     <div className="container mx-auto py-8 pb-24">
@@ -222,7 +229,7 @@ const Compare = () => {
       
       <div className="flex justify-center mt-4">
         <button
-          onClick={() => setCompare(!compare)}
+          onClick={handleCompareClick}
           className="px-6 py-3 bg-green-500 text-white font-semibold rounded"
         >
           {compare ? "Close Comparison" : "Compare"}
