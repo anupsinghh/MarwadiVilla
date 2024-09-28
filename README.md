@@ -8,7 +8,8 @@ Here's the updated project description without the hosted link:
 
 - **React.js** ⚛️
 - **Tailwind CSS** 🎨
-- **HeadlessUI** 🧩
+- **Leaflet** 🧩
+- **Firebase**
 
 ## 📜 Project Summary
 
