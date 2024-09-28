@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { RiHeart2Fill } from "react-icons/ri";
 
 const Footer = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true); // Start with true to show footer immediately
 
     const handleScroll = () => {
         const windowHeight = window.innerHeight;
@@ -21,7 +21,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer className={`bg-white w-full h-20 text-gray-800 fixed bottom-0 transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <footer className={`bg-white w-full h-20 text-gray-800 fixed bottom-0 left-0 transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
             <div className="flex justify-center items-center p-5 gap-4 text-lg">
                 <p>Created with </p>
                 <RiHeart2Fill className="text-red-500 text-3xl" />
