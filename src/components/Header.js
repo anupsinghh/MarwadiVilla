@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ user, onLogout }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);
+    const navigate = useNavigate(); // Use navigate for programmatic navigation
 
     const toggleMenu = () => {
         setIsMenuOpen((prev) => !prev);
@@ -11,6 +12,15 @@ const Header = ({ user, onLogout }) => {
 
     const closeMenu = () => {
         setIsMenuOpen(false);
+    };
+
+    const handleLinkClick = (path) => {
+        if (!user) {
+            // If the user is not logged in, navigate to the login page instead of the link
+            navigate("/login");
+        } else {
+            navigate(path);
+        }
     };
 
     // Close the menu when clicking outside
@@ -54,10 +64,10 @@ const Header = ({ user, onLogout }) => {
                 {/* Desktop Navigation Links */}
                 <nav className="hidden md:flex md:items-center md:gap-6">
                     <Link className="px-4 py-3 bg-violet-300 text-white rounded-lg" to="/">Home</Link>
-                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" to="/compare">Compare</Link>
-                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" to="/listings">Listings</Link>
-                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" to="">Appointment</Link>
-                    <Link className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" to="">Resources</Link>
+                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/compare")}>Compare</button>
+                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/listings")}>Listings</button>
+                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/wishlist")}>Wishlist</button>
+                    <button className="px-4 py-3 hover:bg-violet-300 hover:text-white rounded-lg" onClick={() => handleLinkClick("/appointments")}>Appointments</button>
                 </nav>
 
                 <div className="hidden md:flex items-center gap-6">
@@ -74,13 +84,14 @@ const Header = ({ user, onLogout }) => {
                             <button 
                                 className="border-2 text-violet-800 px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition"
                                 onClick={onLogout}
+                                style={{ color: 'red' }} // Set logout button to red
                             >
                                 Log Out
                             </button>
                         </div>
                     ) : (
                         <>
-                            <Link className="border-2 text-violet-800 px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition" to="/login">Log in</Link>
+                            <button className="border-2 text-violet-800 px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition" onClick={() => navigate("/login")}>Log in</button>
                             <Link className="bg-violet-700 hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition" to="">Sign up</Link>
                         </>
                     )}
@@ -108,20 +119,22 @@ const Header = ({ user, onLogout }) => {
                             <button 
                                 className="w-full text-left hover:bg-violet-300 hover:text-white rounded-lg px-4 py-2" 
                                 onClick={onLogout}
+                                style={{ color: 'red' }} // Set logout button to red
                             >
                                 Log Out
                             </button>
                         </div>
                     ) : (
                         <>
-                            <Link onClick={closeMenu} className="border-2 text-violet-800 w-full text-left px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition" to="/login">Log in</Link>
+                            <button onClick={() => { closeMenu(); navigate("/login"); }} className="border-2 text-violet-800 w-full text-left px-4 py-2 rounded-lg hover:bg-violet-300 hover:text-white transition">Log in</button>
                             <Link onClick={closeMenu} className="bg-violet-700 w-full text-left hover:bg-violet-800 text-white px-4 py-2 rounded-lg transition" to="">Sign up</Link>
                         </>
                     )}
-                    <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="/">Home</Link>
-                    <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="/compare">Compare</Link>
-                    <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="/listings">List</Link>
-                    <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="">Appointment</Link>
+                    <button onClick={() => { closeMenu(); handleLinkClick("/"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Home</button>
+                    <button onClick={() => { closeMenu(); handleLinkClick("/compare"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Compare</button>
+                    <button onClick={() => { closeMenu(); handleLinkClick("/listings"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">List</button>
+                    <button onClick={() => { closeMenu(); handleLinkClick("/wishlist"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Wishlist</button>
+                    <button onClick={() => { closeMenu(); handleLinkClick("/appointments"); }} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg">Appointments</button>
                     <Link onClick={closeMenu} className="w-full text-left px-4 py-2 hover:bg-violet-300 hover:text-white rounded-lg" to="">Resources</Link>
                 </div>
             </nav>
